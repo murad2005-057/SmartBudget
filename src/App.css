@@ -149,6 +149,15 @@
   box-sizing: border-box;
 }
 
+.loading-screen-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .card-container {
   background-color: #FFFFFF;
   border-radius: 20px;
@@ -304,6 +313,7 @@
 .onboarding-page-wrapper {
   min-height: 100vh;
   width: 100%;
+  overflow-x: hidden;
   background: linear-gradient(180deg, #788794 0%, #d86800 100%);
   display: flex;
   flex-direction: column;
@@ -312,7 +322,7 @@
 }
 
 .onboarding-header {
-  padding: 28px 36px;
+  padding: 24px 32px;
   position: absolute;
   top: 0;
   left: 0;
@@ -347,18 +357,24 @@
 
 .onboarding-main-container {
   flex: 1;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px 40px;
+  padding: 88px 24px 48px;
+  overflow-y: auto;
   box-sizing: border-box;
+}
+
+.loading-main-container {
+  padding: 16px;
 }
 
 .question-card-container {
   background-color: #FFFFFF;
   border-radius: 20px;
   width: 100%;
-  max-width: 620px;
+  max-width: 672px;
   padding: 40px 36px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
@@ -430,6 +446,8 @@
   font-weight: 700;
   color: #111827;
   margin-bottom: 20px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .sub-label {
@@ -470,6 +488,7 @@
   color: #111827;
   font-family: inherit;
   width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -514,7 +533,9 @@
 }
 
 .option-btn {
-  height: 50px;
+  min-height: 50px;
+  height: auto;
+  padding: 12px 10px;
   border: 1.5px solid #FF7A00;
   border-radius: 14px;
   background-color: #FFFFFF;
@@ -612,6 +633,8 @@
   font-family: inherit;
   text-align: left;
   cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .savings-goal-card.is-selected {
@@ -707,7 +730,8 @@
   color: #374151;
   font-size: 14px;
   font-weight: 600;
-  white-space: nowrap;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .expense-input-item .custom-input-field {
@@ -760,6 +784,8 @@
   font-family: inherit;
   text-align: left;
   cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .expense-select-card.is-selected {
@@ -836,6 +862,8 @@
   font-family: inherit;
   text-align: left;
   cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .assessment-option.is-selected,
@@ -863,6 +891,8 @@
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 /* NAVIGATION FOOTER */
@@ -885,6 +915,7 @@
   gap: 4px;
   cursor: pointer;
   padding: 8px 0;
+  min-height: 44px;
   transition: opacity 0.15s ease;
 }
 
@@ -909,6 +940,7 @@
   transition: all 0.2s ease;
   box-shadow: 0 4px 14px rgba(255, 122, 0, 0.25);
   margin-left: auto;
+  justify-content: center;
 }
 
 .btn-next:hover:not(:disabled) {
@@ -1087,7 +1119,8 @@
 }
 
 .housing-card-label {
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
@@ -1178,16 +1211,59 @@
    RESPONSIVE MEDIA QUERIES FOR ONBOARDING
    ========================================================================== */
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+  .onboarding-header {
+    padding: 16px;
+  }
+
+  .onboarding-brand-title {
+    font-size: 16px;
+  }
+
+  .onboarding-main-container {
+    padding: 16px;
+  }
+
   .question-card-container {
-    padding: 28px 24px;
+    border-radius: 16px;
+    max-width: 448px;
+    padding: 20px;
   }
 
   .user-greeting {
-    font-size: 22px;
+    font-size: 21px;
   }
 
-  .summary-cards-grid {
+  .subtitle-text {
+    font-size: 13px;
+  }
+
+  .question-title {
+    font-size: 17px;
+  }
+
+  .goal-options-grid,
+  .savings-goals-grid,
+  .monthly-expenses-grid,
+  .recurring-expenses-grid,
+  .assessment-options-grid,
+  .annual-priority-grid,
+  .savings-ability-options {
+    grid-template-columns: 1fr;
+  }
+
+  .savings-goal-card {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .expense-input-label {
+    font-size: 13px;
+  }
+
+  .housing-options-row,
+  .option-buttons-row {
     grid-template-columns: 1fr;
   }
 
@@ -1195,7 +1271,150 @@
     flex-direction: column;
   }
 
+  .housing-option-card {
+    min-height: 60px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px 12px;
+  }
+
   .credit-fields-grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-navigation-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .nav-left,
+  .nav-right,
+  .btn-back,
+  .btn-next {
+    width: 100%;
+  }
+
+  .btn-back,
+  .btn-next {
+    justify-content: center;
+  }
+
+  .btn-next {
+    padding-inline: 16px;
+  }
+
+  .summary-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 640px) {
+  .loading-main-container {
+    padding: 24px;
+  }
+
+  .right-panel {
+    align-items: center;
+    padding: 48px 32px;
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 430px;
+    border-radius: 20px;
+    padding: 40px 36px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .onboarding-main-container {
+    padding: 24px;
+  }
+
+  .question-card-container {
+    max-width: 576px;
+    padding: 32px 24px;
+  }
+
+  .housing-options-row {
+    flex-wrap: wrap;
+  }
+
+  .housing-option-card {
+    min-width: calc(50% - 3px);
+  }
+}
+
+@media (min-width: 768px) {
+  .onboarding-main-container {
+    padding-inline: 32px;
+  }
+}
+
+/* Landing page becomes a top-to-bottom flow below the desktop breakpoint. */
+@media (max-width: 1023px) {
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .left-panel {
+    order: 1;
+    min-height: auto;
+    padding: 40px 24px 48px;
+  }
+
+  .hero-main-content {
+    align-items: center;
+    margin: 64px auto 24px;
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .hero-heading,
+  .hero-body-text {
+    max-width: 100%;
+  }
+
+  .right-panel {
+    order: 2;
+    min-height: auto;
+    padding: 48px 24px 64px;
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 639px) {
+  .left-panel {
+    padding: 32px 16px 40px;
+  }
+
+  .brand-container {
+    align-self: flex-start;
+  }
+
+  .hero-main-content {
+    margin: 40px auto 16px;
+  }
+
+  .hero-heading {
+    font-size: 36px;
+    line-height: 1.12;
+  }
+
+  .hero-body-text {
+    font-size: 15px;
+  }
+
+  .right-panel {
+    padding: 32px 16px 48px;
   }
 }

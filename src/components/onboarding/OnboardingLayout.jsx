@@ -32,7 +32,7 @@ export function OnboardingLayout({ userName = 'User' }) {
   return (
     <div className="onboarding-page-wrapper">
       <Header />
-      <main className="onboarding-main-container">
+      <main className={`onboarding-main-container${loadingPhase !== null ? ' loading-main-container' : ''}`}>
         {loadingPhase === null ? (
           <QuestionCard
             onboarding={onboarding}

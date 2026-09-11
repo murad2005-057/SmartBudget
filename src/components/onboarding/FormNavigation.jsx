@@ -3,6 +3,7 @@ import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 export function FormNavigation({
   onNext,
+  onComplete,
   onPrev,
   showBack = true,
   disableNext = false,
@@ -22,7 +23,7 @@ export function FormNavigation({
         <button
           type="button"
           className="btn-next"
-          onClick={onNext}
+          onClick={onComplete || onNext}
           disabled={disableNext}
         >
           <span>{nextLabel}</span>

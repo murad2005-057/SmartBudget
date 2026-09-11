@@ -356,10 +356,10 @@
 
 .question-card-container {
   background-color: #FFFFFF;
-  border-radius: 24px;
+  border-radius: 20px;
   width: 100%;
-  max-width: 540px;
-  padding: 36px 40px;
+  max-width: 620px;
+  padding: 40px 36px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -500,6 +500,11 @@
   background-color: #F3F4F6;
 }
 
+.clear-input-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
 /* OPTION BUTTONS (Bəli / Xeyr) */
 .option-buttons-row {
   display: grid;
@@ -585,6 +590,281 @@
   font-weight: 700;
 }
 
+/* STEP 5 - SAVINGS GOALS */
+.savings-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 10px;
+}
+
+.savings-goal-card {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid #D9DEE1;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.savings-goal-card.is-selected {
+  border-color: #FF7A00;
+  background-color: rgba(255, 122, 0, 0.08);
+  color: #FF7A00;
+}
+
+.savings-goal-icon {
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.goal-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.goal-detail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.goal-detail-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.priority-fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+.priority-fieldset legend {
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.priority-options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.priority-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #111827;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.priority-option input {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  accent-color: #FF7A00;
+}
+
+/* STEPS 6-7 - EXPENSES */
+.expense-subtitle {
+  margin-top: -12px;
+  margin-bottom: 14px;
+  color: #6B7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.monthly-expenses-grid,
+.recurring-expenses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+
+.expense-input-item {
+  min-width: 0;
+}
+
+.expense-input-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.expense-input-item .custom-input-field {
+  height: 38px;
+  border-color: #F6C9A5;
+  border-radius: 8px;
+  padding-left: 10px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.expense-input-item .clear-input-btn {
+  right: 8px;
+}
+
+.recurring-expenses-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.recurring-expenses-heading .question-title {
+  margin-bottom: 0;
+}
+
+.recurring-expenses-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(255, 122, 0, 0.08);
+  font-size: 15px;
+}
+
+.expense-select-card {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #D9DEE1;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.expense-select-card.is-selected {
+  border-color: #FF7A00;
+  background-color: rgba(255, 122, 0, 0.08);
+  color: #FF7A00;
+}
+
+/* LOADING PLAN */
+.loading-plan-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.loading-plan-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.loading-plan-spinner {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 12px;
+  border: 2px solid rgba(255, 122, 0, 0.2);
+  border-top-color: #FF7A00;
+  border-radius: 50%;
+  animation: loading-plan-spin 0.8s linear infinite;
+}
+
+.loading-plan-title {
+  margin: 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.loading-plan-subtitle {
+  margin-top: 6px;
+  color: #6B7280;
+  font-size: 11px;
+}
+
+@keyframes loading-plan-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* STEPS 8-10 - FINANCIAL CHOICES */
+.assessment-options-grid,
+.annual-priority-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 10px;
+}
+
+.assessment-option,
+.annual-priority-option {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #D9DEE1;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.assessment-option.is-selected,
+.annual-priority-option.is-selected,
+.savings-ability-option.is-selected {
+  border-color: #FF7A00;
+  background-color: rgba(255, 122, 0, 0.08);
+  color: #FF7A00;
+}
+
+.savings-ability-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.savings-ability-option {
+  min-height: 40px;
+  padding: 7px 10px;
+  border: 1px solid #FF7A00;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #FF7A00;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 /* NAVIGATION FOOTER */
 .form-navigation-container {
   display: flex;
@@ -617,6 +897,7 @@
   color: #FFFFFF;
   border: none;
   border-radius: 12px;
+  min-height: 50px;
   padding: 12px 28px;
   font-size: 15px;
   font-weight: 700;
@@ -753,7 +1034,150 @@
   background-color: #E66E00;
 }
 
-/* RESPONSIVE MEDIA QUERIES FOR ONBOARDING */
+/* ==========================================================================
+   STEP 3 – HOUSING OPTION CARDS
+   ========================================================================== */
+
+.housing-options-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.housing-option-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 72px;
+  padding: 16px 10px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 14px;
+  background-color: #FFFFFF;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 0;
+}
+
+.housing-option-card:hover {
+  border-color: #FF7A00;
+  color: #FF7A00;
+  background-color: rgba(255, 122, 0, 0.03);
+}
+
+.housing-option-card.is-selected {
+  border: 2px solid #FF7A00;
+  color: #FF7A00;
+  background-color: rgba(255, 122, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.12);
+}
+
+.housing-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.housing-card-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   STEP 4 – CREDIT FORM
+   ========================================================================== */
+
+.credit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.credit-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.credit-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.credit-entry-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.credit-remove-btn {
+  background: transparent;
+  border: none;
+  color: #9CA3AF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.credit-remove-btn:hover {
+  color: #EF4444;
+  background-color: #FEF2F2;
+}
+
+.credit-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+
+/* Tighten inputs inside credit grid */
+.credit-fields-grid .custom-input-field {
+  height: 44px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.add-credit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #FF7A00;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 2px;
+  transition: opacity 0.15s ease;
+  align-self: flex-start;
+}
+
+.add-credit-btn:hover {
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES FOR ONBOARDING
+   ========================================================================== */
+
 @media (max-width: 640px) {
   .question-card-container {
     padding: 28px 24px;
@@ -764,6 +1188,14 @@
   }
 
   .summary-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .housing-options-row {
+    flex-direction: column;
+  }
+
+  .credit-fields-grid {
     grid-template-columns: 1fr;
   }
 }
